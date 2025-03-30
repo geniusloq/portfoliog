@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { RGBName } from "../components/RGBName";
 import { FaServer, FaCode, FaWindows, FaDatabase } from "react-icons/fa6";
 import { Sparkle, Terminal } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 export const Home = () => {
+  const navigate = useNavigate();
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
   const techStack = [
@@ -53,10 +54,12 @@ export const Home = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6 }}
       >
-        <button className="px-8 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors">
+        <button onClick={() => navigate("/projects")}
+        className="px-8 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors">
           View Projects
         </button>
-        <button className="px-8 py-3 rounded-full border border-purple-600 hover:bg-purple-600/10 transition-colors">
+        <button onClick={() => navigate("/contact")}
+        className="px-8 py-3 rounded-full border border-purple-600 hover:bg-purple-600/10 transition-colors">
           Contact Me
         </button>
       </motion.div>
